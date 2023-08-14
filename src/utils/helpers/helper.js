@@ -5,6 +5,9 @@ const jwt = require("jsonwebtoken");
 const { v4: uuidv4 } = require("uuid");
 const crypto = require("crypto");
 const config = require("../../../config/env");
+const { serverError } = genericErrors;
+
+const { SUCCESS, FAIL } = constants;
 
 /**
  * Contains Helper Methods and Functions for the App
@@ -67,6 +70,18 @@ class Helper {
       errors: aggregateError.errors,
     });
   }
+
+  /**
+	 * it validates a schema and returns a boolean
+	 * @static
+	 * @param { Joi } schema - The validation Schema
+	 * @param { Object } object - The data to be validated { req payload from client}
+	 * @memberof Helper
+	 * @returns { boolean } -True if validation is successfull || Null if otherwise
+	 */
+	static validateInput(schema, object) {
+		return schema.validateAsync(object);
+	}
 
   /**
    *Checks if an object is empty
@@ -283,8 +298,6 @@ class Helper {
       .update(JSON.stringify(options))
       .digest("hex");
   }
-
-  
 }
 
 module.exports = Helper;
