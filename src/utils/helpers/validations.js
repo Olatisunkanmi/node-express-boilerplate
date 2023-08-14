@@ -1,4 +1,4 @@
-const Joi = require("joi");
+const Joi = require('joi');
 
 /**
  * Conatins validation helpers
@@ -22,9 +22,9 @@ class ValidateRequest {
       .max(max)
       .required()
       .messages({
-        "any.required": `${param} is a required field`,
-        "string.base": `${param} must be a string`,
-        "string.empty": `${param} cannot be an empty field`,
+        'any.required': `${param} is a required field`,
+        'string.base': `${param} must be a string`,
+        'string.empty': `${param} cannot be an empty field`,
       });
   }
 
@@ -41,10 +41,10 @@ class ValidateRequest {
       .default('Email')
       .required()
       .messages({
-        "any.required": `${param} is a required field`,
-        "string.base": `${param} must be a string`,
-        "string.empty": `${param} cannot be an empty field`,
-        "string.email": `${param} must be a valid email`,
+        'any.required': `${param} is a required field`,
+        'string.base': `${param} must be a string`,
+        'string.empty': `${param} cannot be an empty field`,
+        'string.email': `${param} must be a valid email`,
       });
   }
 
@@ -63,10 +63,10 @@ class ValidateRequest {
       .required()
       .min(7)
       .messages({
-        "string.base": `${param} must be a string`,
-        "string.empty": `${param} field cannot be an empty field`,
-        "any.required": `${param} field is required`,
-        "string.min": `${param} cannot be lesser than 7 character`,
+        'string.base': `${param} must be a string`,
+        'string.empty': `${param} field cannot be an empty field`,
+        'any.required': `${param} field is required`,
+        'string.min': `${param} cannot be lesser than 7 character`,
       });
   }
 
@@ -83,9 +83,9 @@ class ValidateRequest {
       .number()
       .optional()
       .messages({
-        "any.required": `${param} is a required field`,
-        "number.base": `${param} must be a number`,
-        "number.empty": `${param} cannot be an empty field`,
+        'any.required': `${param} is a required field`,
+        'number.base': `${param} must be a number`,
+        'number.empty': `${param} cannot be an empty field`,
       });
   }
 
@@ -101,11 +101,11 @@ class ValidateRequest {
       .number()
       .required()
       .messages({
-        "any.required": `${param} is a required field`,
-        "number.base": `${param} must be a number`,
-        "number.empty": `${param} cannot be an empty field`,
-        "nubmer.min": `${param} cannot be lesser than ${min}`,
-        "number.max": `${param} cannot be greater than ${max}`,
+        'any.required': `${param} is a required field`,
+        'number.base': `${param} must be a number`,
+        'number.empty': `${param} cannot be an empty field`,
+        'nubmer.min': `${param} cannot be lesser than ${min}`,
+        'number.max': `${param} cannot be greater than ${max}`,
       });
   }
 
@@ -124,10 +124,10 @@ class ValidateRequest {
       .required()
       .valid(...fields)
       .messages({
-        "any.required": `${param} is a required field`,
-        "any.only": `Please enter a valid ${param}`,
-        "string.base": `${param} must be a string`,
-        "string.empty": `${param} field cannot be an empty field`,
+        'any.required': `${param} is a required field`,
+        'any.only': `Please enter a valid ${param}`,
+        'string.base': `${param} must be a string`,
+        'string.empty': `${param} field cannot be an empty field`,
       });
   }
 }

@@ -1,5 +1,5 @@
-const ApiError = require("./api.error");
-const constants = require("../constants");
+const ApiError = require('./api.error');
+const constants = require('../constants');
 
 const {
   INTERNAL_SERVER_ERROR,

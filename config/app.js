@@ -1,18 +1,18 @@
-const express = require("express");
-const { urlencoded, json } = require("express");
-const morgan = require("morgan");
-const cors = require("cors");
-const winston = require("winston");
-const helmet = require("helmet");
-const config = require("./env");
-const routes = require("../src/routes");
+const express = require('express');
+const { urlencoded, json } = require('express');
+const morgan = require('morgan');
+const cors = require('cors');
+const winston = require('winston');
+const helmet = require('helmet');
+const config = require('./env');
+const routes = require('../src/routes');
 const {
   ApiError,
   errController,
   constants,
   Helper,
   genericErrors,
-} = require("../src/utils");
+} = require('../src/utils');
 
 const { successResponse } = Helper;
 const { WELCOME, v1 } = constants;
@@ -27,9 +27,9 @@ const appConfig = async (app) => {
   // adds middleware that parses requests whose content-type is application/json
   app.use(express.json());
   // integrate winston logger with morgan
-  app.use(morgan("combined", { stream: logger.stream }));
+  app.use(morgan('combined', { stream: logger.stream }));
   // adds a heartbeat route for the culture
-  app.all( v1, (req, res) => successResponse(res, { message: WELCOME }));
+  app.all(v1, (req, res) => successResponse(res, { message: WELCOME }));
 
   //All routes;
   app.use(v1, routes);
@@ -41,7 +41,7 @@ const appConfig = async (app) => {
   });
 
   // catches 404 errors and forwards them to error handlers
-  app.all("*", (req, res, next) => {
+  app.all('*', (req, res, next) => {
     next(notFoundApi);
   });
 

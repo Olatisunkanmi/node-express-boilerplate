@@ -1,0 +1,7 @@
+# Ignore artifacts:
+build
+coverage
+.husky
+.github
+package-lock.json
+README.md

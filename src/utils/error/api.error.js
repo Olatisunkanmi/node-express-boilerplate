@@ -1,5 +1,5 @@
-const ModuleError = require("./module.error");
-const constants = require("../constants");
+const ModuleError = require('./module.error');
+const constants = require('../constants');
 
 const { INTERNAL_SERVER_ERROR } = constants;
 

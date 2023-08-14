@@ -1,4 +1,4 @@
-const constants = require("../constants");
+const constants = require('../constants');
 
 const { MODULE_ERROR, MODULE_ERROR_STATUS } = constants;
 

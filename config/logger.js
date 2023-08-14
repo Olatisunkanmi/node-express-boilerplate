@@ -1,7 +1,7 @@
-const winston = require("winston");
-const fs = require("fs");
-const config = require("./env");
-const { timeStamp } = require("console");
+const winston = require('winston');
+const fs = require('fs');
+const config = require('./env');
+const { timeStamp } = require('console');
 
 const { createLogger, format, transports } = winston;
 const { combine, timestamp, label, printf, json, colorize } = format;
@@ -33,12 +33,12 @@ class Logger {
    * @constructor Logger
    */
   constructor(options) {
-    this.label = options.label || "log";
+    this.label = options.label || 'log';
     this.logDir = options.logDirPath || `${config.rootPath}/logs`;
 
     this._labelOptions = {
       console: {
-        level: "debug",
+        level: 'debug',
         handleExceptions: true,
         format: combine(
           colorize({ all: true }),
@@ -51,7 +51,7 @@ class Logger {
         ),
       },
       file: {
-        level: "debug",
+        level: 'debug',
         filename: `${this.logDir}/app.log`,
         handleExceptions: true,
         maxsize: 5242880,
@@ -59,12 +59,12 @@ class Logger {
         format: winston.format.json(),
       },
       Route: {
-        level: "debug",
+        level: 'debug',
       },
     };
     this.debugMode =
       options.debugMode === true || options.debugMode === undefined;
-    this.environment = config.NODE_ENV || "development";
+    this.environment = config.NODE_ENV || 'development';
   }
 
   /**

@@ -1,8 +1,7 @@
-const { Helper, ApiError, constants } = require("../../utils");
-
+const { Helper, ApiError, constants } = require('../../utils');
 
 const { errorResponse } = Helper;
-const { LOGIN_USER_SUCCESSFULLY, CREATE_USER_SUCCESS} = constants;
+const { LOGIN_USER_SUCCESSFULLY, CREATE_USER_SUCCESS } = constants;
 
 /**
  	/**
@@ -38,8 +37,7 @@ class AuthController {
    * @returns {JSON} -  A Json with the users details and a JWT Token
    */
   static register(req, res) {
-    const request = user
-
+    const request = user;
 
     Helper.successResponse(res, {
       data: data,

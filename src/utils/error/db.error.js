@@ -1,5 +1,5 @@
-const constants = require("../constants");
-const ModuleError = require("./module.error");
+const constants = require('../constants');
+const ModuleError = require('./module.error');
 
 const { DB_ERROR, DB_ERROR_STATUS } = constants;
 

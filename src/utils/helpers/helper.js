@@ -1,10 +1,10 @@
-const constants = require("../constants");
-const genericErrors = require("../error/generic");
-const bcrypt = require("bcrypt");
-const jwt = require("jsonwebtoken");
-const { v4: uuidv4 } = require("uuid");
-const crypto = require("crypto");
-const config = require("../../../config/env");
+const constants = require('../constants');
+const genericErrors = require('../error/generic');
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+const { v4: uuidv4 } = require('uuid');
+const crypto = require('crypto');
+const config = require('../../../config/env');
 const { serverError } = genericErrors;
 
 const { SUCCESS, FAIL } = constants;
@@ -72,16 +72,16 @@ class Helper {
   }
 
   /**
-	 * it validates a schema and returns a boolean
-	 * @static
-	 * @param { Joi } schema - The validation Schema
-	 * @param { Object } object - The data to be validated { req payload from client}
-	 * @memberof Helper
-	 * @returns { boolean } -True if validation is successfull || Null if otherwise
-	 */
-	static validateInput(schema, object) {
-		return schema.validateAsync(object);
-	}
+   * it validates a schema and returns a boolean
+   * @static
+   * @param { Joi } schema - The validation Schema
+   * @param { Object } object - The data to be validated { req payload from client}
+   * @memberof Helper
+   * @returns { boolean } -True if validation is successfull || Null if otherwise
+   */
+  static validateInput(schema, object) {
+    return schema.validateAsync(object);
+  }
 
   /**
    *Checks if an object is empty
@@ -152,7 +152,7 @@ class Helper {
    * @returns { string }- A signed JWT tokwn
    */
   static generateToken(payload) {
-    const { config } = require("../../../config");
+    const { config } = require('../../../config');
     return jwt.sign({ payload }, config.SECRET_KEY, {
       expiresIn: config.SECRET_EXPIRES,
     });
@@ -168,7 +168,7 @@ class Helper {
    * token is valid or an error message if otherwise.
    */
   static verifyToken(token) {
-    const { config } = require("../../../config");
+    const { config } = require('../../../config');
     return jwt.verify(token, config.SECRET_KEY);
   }
 
@@ -294,9 +294,9 @@ class Helper {
   static generateHash(options) {
     logger.info(options);
     return crypto
-      .createHmac("sha512", PAYSTACK_SECRET_KEY)
+      .createHmac('sha512', PAYSTACK_SECRET_KEY)
       .update(JSON.stringify(options))
-      .digest("hex");
+      .digest('hex');
   }
 }
 

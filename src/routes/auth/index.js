@@ -1,10 +1,10 @@
-const router = require("express").Router();
-const { AuthController } = require("../../controllers");
-const { validateRequest } = require("../../middleware");
-const { RegisterRequest } = require("../../request");
+const router = require('express').Router();
+const { AuthController } = require('../../controllers');
+const { validateRequest } = require('../../middleware');
+const { RegisterRequest } = require('../../request');
 
 router.post(
-  "/register",
+  '/register',
   validateRequest(RegisterRequest),
   AuthController.register
 );

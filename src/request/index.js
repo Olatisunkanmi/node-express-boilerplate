@@ -1,3 +1,3 @@
 module.exports = {
-    RegisterRequest: require('./registerRequest'),
-}
+  RegisterRequest: require('./registerRequest'),
+};

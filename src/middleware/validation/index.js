@@ -1,4 +1,4 @@
-const { Helper, ApiError } = require("../../utils");
+const { Helper, ApiError } = require('../../utils');
 
 const { validateInput, errorResponse } = Helper;
 
@@ -17,7 +17,6 @@ class ValidationMiddleware {
    * @memberof ValidationMiddleware
    */
   static validate(schema) {
-	console.info(schema)
     return async (req, res, next) => {
       try {
         await validateInput(schema, req.body);

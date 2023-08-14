@@ -4,7 +4,10 @@
   "version": "1.0.0",
   "main": "app.js",
   "scripts": {
-    "start:dev": "nodemon app.js"
+    "start": "node app.js",
+    "start:dev": "nodemon app.js",
+    "format:check": "npx prettier --check .",
+    "format:write": "npx prettier --write ."
   },
   "keywords": [],
   "author": "Olasunkanmi Igbasan",
@@ -32,5 +35,9 @@
     "nodemon": "^3.0.1",
     "uuid": "^9.0.0",
     "winston": "^3.10.0"
+  },
+  "devDependencies": {
+    "husky": "^8.0.3",
+    "prettier": "3.0.1"
   }
 }
