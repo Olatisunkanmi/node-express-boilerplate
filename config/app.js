@@ -5,6 +5,7 @@ const cors = require("cors");
 const winston = require("winston");
 const helmet = require("helmet");
 const config = require("./env");
+const routes = require("../src/routes");
 const {
   ApiError,
   errController,
@@ -28,10 +29,13 @@ const appConfig = async (app) => {
   // integrate winston logger with morgan
   app.use(morgan("combined", { stream: logger.stream }));
   // adds a heartbeat route for the culture
-  app.get("/", (req, res) => successResponse(res, { message: WELCOME }));
+  app.all( v1, (req, res) => successResponse(res, { message: WELCOME }));
+
+  //All routes;
+  app.use(v1, routes);
 
   //Port
-  const port = config.PORT ||3000;
+  const port = config.PORT || 3000;
   app.listen(port, () => {
     logger.info(`API NAME is running on PORT ${port}`);
   });
