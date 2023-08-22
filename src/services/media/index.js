@@ -21,6 +21,18 @@ class Media {
       secure: true,
     });
   }
+
+  /**
+   * @description uploads media
+   */
+
+  static uploadImage(image) {
+    
+  }
+
+
+  static uploadVideo(video) {
+  } 
 }
 
 module.exports = Media;

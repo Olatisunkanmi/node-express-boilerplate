@@ -1,8 +1,8 @@
-const knex = require('knex');
-const knexFile = require('./knexfile');
-const config = require('../../../config');  
+// const knex = require('knex');
+// const knexFile = require('./knexfile');
+// const config = require('../../../config');
 
+// console.log(config);
+// const db = knex(knexFile[config.NODE_ENV]);
 
-const db = knex(knexFile[config.NODE_ENV]);
-
-module.exports = db; 
+// module.exports = db;
