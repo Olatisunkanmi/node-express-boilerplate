@@ -1,17 +1,21 @@
-const winston = require("winston");
-const fs = require("fs");
-const config = require("./env");
-const { timeStamp } = require("console");
+const winston = require('winston');
+const fs = require('fs');
+const config = require('./env');
+const { timeStamp } = require('console');
 
 const { createLogger, format, transports } = winston;
 const { combine, timestamp, label, printf, json, colorize } = format;
+
+const logFormat = printf(({ level, message, label, timestamp }) => {
+  return `${timestamp} ${level} : ${message}`;
+});
 
 const getLogToProcess = (fileOpt, consoleOpt) => {
   const logArray = [];
 
   logArray.push(
     new winston.transports.File(fileOpt),
-    new winston.transports.Console(consoleOpt),
+    new winston.transports.Console(consoleOpt)
   );
 
   return logArray;
@@ -29,15 +33,12 @@ class Logger {
    * @constructor Logger
    */
   constructor(options) {
-    // log directory
-    this.label = options.label || "log";
+    this.label = options.label || 'log';
     this.logDir = options.logDirPath || `${config.rootPath}/logs`;
-    // label options
-    // set logger levvel to dedug
 
     this._labelOptions = {
       console: {
-        level: "debug",
+        level: 'debug',
         handleExceptions: true,
         format: combine(
           colorize({ all: true }),
@@ -45,12 +46,12 @@ class Logger {
             (msg) =>
               `[${new Date(msg.timestamp).toUTCString()}]: ${msg.label} : - ${
                 msg.level
-              }: ${msg.message}`,
-          ),
+              }: ${msg.message}`
+          )
         ),
       },
       file: {
-        level: "debug",
+        level: 'debug',
         filename: `${this.logDir}/app.log`,
         handleExceptions: true,
         maxsize: 5242880,
@@ -58,12 +59,12 @@ class Logger {
         format: winston.format.json(),
       },
       Route: {
-        level: "debug",
+        level: 'debug',
       },
     };
     this.debugMode =
       options.debugMode === true || options.debugMode === undefined;
-    this.environment = config.NODE_ENV || "development";
+    this.environment = config.NODE_ENV || 'development';
   }
 
   /**
@@ -92,7 +93,7 @@ class Logger {
         timestamp(),
         label({
           label: this.label,
-        }),
+        })
       ),
       transports: this._logTransports(),
       exitOnError: false,

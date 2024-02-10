@@ -1,34 +1,55 @@
 {
-  "name": "rodnav-backend",
+  "name": "express-boilerplate",
+  "description": "A simple boilerplate for EXpress applications. Start building the right way",
   "version": "1.0.0",
-  "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "node server.js",
-    "start:dev": "NODE_ENV=development nodemon --trace-warnings server.js",
+    "start": "node app.js",
+    "start:dev": "nodemon app.js",
     "format:check": "npx prettier --check .",
     "format:write": "npx prettier --write ."
   },
-  "author": "",
-  "license": "ISC",
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx,json,md,yml,yaml}": "npm run format:write",
+    "*.js": "npm run lint"
+  },
+  "keywords": [],
+  "author": "Olasunkanmi Igbasan",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Olatisunkanmi/Express-boilerplate.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Olatisunkanmi/Express-boilerplate/issues"
+  },
+  "homepage": "https://github.com/Olatisunkanmi/Express-boilerplate#readme",
   "dependencies": {
-    "bcrypt": "^5.1.1",
+    "app-root-path": "^3.1.0",
+    "bcrypt": "^5.1.0",
+    "cloudinary": "^1.40.0",
     "cors": "^2.8.5",
-    "dotenv": "^16.4.1",
+    "dotenv": "^16.3.1",
     "express": "^4.18.2",
-    "express-rate-limit": "^7.1.5",
-    "helmet": "^7.1.0",
-    "husky": "^9.0.10",
-    "joi": "^17.12.1",
-    "jsonwebtoken": "^9.0.2",
+    "helmet": "^7.0.0",
+    "joi": "^17.9.2",
+    "jsonwebtoken": "^9.0.1",
+    "knex": "^2.5.1",
     "morgan": "^1.10.0",
-    "nodemailer": "^6.9.9",
-    "nodemon": "^3.0.3",
-    "prettier": "^3.2.5",
-    "uuid": "^9.0.1",
-    "winston": "^3.11.0"
+    "mysql2": "^3.6.0",
+    "nodemon": "^3.0.1",
+    "uuid": "^9.0.0",
+    "winston": "^3.10.0"
   },
   "devDependencies": {
-    "app-root-path": "^3.1.0"
+    "eslint": "^8.47.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^14.0.0",
+    "prettier": "3.0.1"
   }
 }

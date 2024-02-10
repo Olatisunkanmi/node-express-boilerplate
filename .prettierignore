@@ -5,7 +5,3 @@ coverage
 .github
 package-lock.json
 README.md
-logs/
-logs
-*.log
-node_modules
